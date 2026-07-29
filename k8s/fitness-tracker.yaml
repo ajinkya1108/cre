@@ -79,7 +79,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: YOUR_REGISTRY/fitness-tracker:1.0.0 # replace before applying
+          image: us-central1-docker.pkg.dev/project-a73eacdd-0abd-4a89-8cb/fitness-repo/fitness-tracker:v1
           imagePullPolicy: IfNotPresent
           ports: [{ containerPort: 8080 }]
           env:
