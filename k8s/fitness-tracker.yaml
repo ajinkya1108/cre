@@ -43,6 +43,9 @@ spec:
           image: postgres:16-alpine
           ports: [{ containerPort: 5432 }]
           envFrom: [{ secretRef: { name: postgres-secret } }]
+          env:
+           - name: PGDATA
+             value: /var/lib/postgresql/data/pgdata
           volumeMounts: [{ name: data, mountPath: /var/lib/postgresql/data }]
           readinessProbe:
             exec: { command: ["sh", "-c", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"] }
