@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: fitness-tracker
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:fitness;MODE=PostgreSQL;DB_CLOSE_DELAY=-1}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+    open-in-view: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+server:
+  error:
+    include-message: always
